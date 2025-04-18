@@ -148,21 +148,85 @@ body {
 
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
     padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .event-card {
     background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-.event-card:hover {
-    transform: translateY(-5px);
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.event-title {
+    font-size: 1.75rem;
+    color: var(--dark-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: var(--dark-color);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.meta-item i {
+    width: 1.2rem;
+    text-align: center;
+}
+
+.event-description {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--dark-color);
+    margin: 0;
+    text-align: left;
+}
+
+.rsvp-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+}
+
+.rsvp-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
 }
 
 footer {
@@ -181,8 +245,21 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+/* Exclude event description from section p styles */
+.section .event-description {
+    margin: 0;
+    text-align: left;
+    max-width: none;
+}
+
 .section p:last-child {
     margin-bottom: 0;
+}
+
+@media (max-width: 1200px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -224,5 +301,39 @@ footer {
 
     .section p:last-child {
         margin-bottom: 0;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event-card {
+        padding: 1.25rem;
+    }
+
+    .event-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .event-title {
+        font-size: 1.5rem;
+    }
+
+    .event-meta {
+        gap: 1rem;
+    }
+
+    .meta-item {
+        font-size: 0.95rem;
+    }
+
+    .event-description {
+        font-size: 1rem;
+    }
+
+    .rsvp-button {
+        align-self: flex-start;
     }
 }

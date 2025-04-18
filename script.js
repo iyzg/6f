@@ -1,24 +1,48 @@
 // Sample events data - replace with your actual events
 const events = [
     {
-        title: "Puppy Playtime",
-        date: "April 20, 2024",
-        time: "2:00 PM - 4:00 PM",
+        title: "Scavenger Hunt",
+        date: "April 24, 2025",
+        time: "5:00PM - 6:30PM",
         location: "Memory Mall",
-        description: "Come pet some adorable puppies to de-stress during finals!"
+        description: "Bring friends and compete to find ducks all across campus.",
+        rsvpLink: "https://forms.gle/example" // Add your RSVP form link here
     },
-    // Add more events as needed
+    {
+        title: "This could be your event here?!",
+        date: "??",
+        time: "??",
+        location: "??",
+        description: "Have a fun idea to make finals week more enjoyable? Apply for funding and make it happen!",
+        rsvpLink: null
+    }
 ];
 
 // Function to create event cards
 function createEventCard(event) {
     return `
         <div class="event-card">
-            <h3>${event.title}</h3>
-            <p class="event-date">${event.date}</p>
-            <p class="event-time">${event.time}</p>
-            <p class="event-location">${event.location}</p>
-            <p class="event-description">${event.description}</p>
+            <div class="event-header">
+                <h3 class="event-title">${event.title}</h3>
+                ${event.rsvpLink ? `<a href="${event.rsvpLink}" class="rsvp-button" target="_blank">RSVP</a>` : ''}
+            </div>
+            <div class="event-details">
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <i class="far fa-calendar" style="color: var(--primary-color)"></i>
+                        <span>${event.date}</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="far fa-clock" style="color: var(--primary-color)"></i>
+                        <span>${event.time}</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt" style="color: var(--primary-color)"></i>
+                        <span>${event.location}</span>
+                    </div>
+                </div>
+                <p class="event-description">${event.description}</p>
+            </div>
         </div>
     `;
 }
