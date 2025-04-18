@@ -58,17 +58,7 @@ function populateEvents() {
     eventsGrid.innerHTML = events.map(event => createEventCard(event)).join('');
 }
 
-// Add smooth scrolling for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Initialize events when the page loads
+// Initialize events and animations when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     populateEvents();
 
@@ -77,13 +67,33 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
+                // Only observe once
+                observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
     });
 
+    // Observe all sections
     document.querySelectorAll('.section').forEach(section => {
         observer.observe(section);
+    });
+
+    // Smooth scroll handling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            const headerOffset = 100;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        });
     });
 }); 
