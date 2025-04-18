@@ -6,7 +6,7 @@ const events = [
         time: "5:00PM - 6:30PM",
         location: "Memory Mall",
         description: "Bring friends and compete to find ducks all across campus.",
-        rsvpLink: "https://forms.gle/example" // Add your RSVP form link here
+        rsvpLink: "https://partiful.com/e/CxLUP7X1YJdiPes37Wn9" // Add your RSVP form link here
     },
     {
         title: "This could be your event here?!",
