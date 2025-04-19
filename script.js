@@ -5,7 +5,7 @@ const events = [
         date: "April 24, 2025",
         time: "5:00PM - 6:30PM",
         location: "Memory Mall",
-        description: "Bring friends and compete to find ducks all across campus.",
+        description: "Compete to find ducks scattered all across campus! Be prepared to hustle and bustle :)",
         rsvpLink: "https://partiful.com/e/CxLUP7X1YJdiPes37Wn9" // Add your RSVP form link here
     },
     {
